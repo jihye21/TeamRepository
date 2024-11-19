@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	이제 양수빈 쇼핑몰을 시작하겠습니다.
+	이제 박지혜 쇼핑몰을 시작하겠습니다.
 	<br />
 	<c:if test="${!empty auth }">
 		<ul>
