@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	이제 이숭무 쇼핑몰을 시작하겠습니다.
+	도깨비 불 듣고 있네
 	<br />
 	<c:if test="${!empty auth }">
 		<ul>
