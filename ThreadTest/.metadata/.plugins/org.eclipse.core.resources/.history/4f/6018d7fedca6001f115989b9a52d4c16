@@ -1,0 +1,30 @@
+package ThreadTest;
+
+public class Ex02 {
+
+	public static void main(String[] args) {
+		MyThread thread01 = new MyThread();
+		MyThread thread02 = new MyThread();
+		thread01.start();
+		thread02.start();
+	}
+	
+}
+
+class MyThread extends Thread{
+	@Override
+	public void run() {
+		long beforeTime = System.currentTimeMillis();
+		int sum = 0;
+		for(int i = 0; i <1000; i++) {
+			for(int j = 0; j <50000; j++)
+			sum += i * j;
+			
+		}
+		System.out.println(sum);
+		
+		long afterTime = System.currentTimeMillis();
+		long secDiffTime = (afterTime - beforeTime)/1000;
+		System.out.println("시간차이: " + secDiffTime);
+	}
+}
