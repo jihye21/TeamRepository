@@ -17,7 +17,7 @@ public class MyWebSocketClient extends WebSocketClient{
 	public static void main(String[] args) {
 		URI uri;
 		try {
-			uri = new URI("ws://localhost:1234");
+			uri = new URI("ws://220.67.114.16:1234");
 			MyWebSocketClient clinet = new MyWebSocketClient(uri);
 		} catch (URISyntaxException e) {
 			// TODO Auto-generated catch block
@@ -45,9 +45,14 @@ public class MyWebSocketClient extends WebSocketClient{
 	@Override
 	public void onOpen(ServerHandshake handshakedata) {
 		System.out.println("Connected to server");
-		Scanner sc = new Scanner(System.in);
-		String message = sc.nextLine();
-		send(message);
+		new Thread(()->{
+			Scanner sc = new Scanner(System.in);
+			while(true) {
+				String message = sc.nextLine();
+				send(message);
+			}
+		}).start();
+		
 	}
 	
 
