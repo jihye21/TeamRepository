@@ -32,12 +32,12 @@ public class ChattingApplication extends WebSocketServer{
 	@Override
 	public void onClose(WebSocket conn, int code, String reason, boolean remote) {
 		System.out.println("closed connection: " + conn.getRemoteSocketAddress());
-		conn.send("welcome");
+		conn.send("bye" + conn.getRemoteSocketAddress());
 	}
 	@Override
 	public void onMessage(WebSocket conn, String message) {
 		System.out.println("Message from client: " + message);
-		conn.send("welcome");
+		conn.send("Server received: " + message);
 	}
 	@Override
 	public void onError(WebSocket conn, Exception ex) {

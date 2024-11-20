@@ -2,6 +2,7 @@ package chattingClient;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Scanner;
 
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ServerHandshake;
@@ -25,27 +26,29 @@ public class MyWebSocketClient extends WebSocketClient{
 	}
 
 	@Override
-	public void onClose(int arg0, String arg1, boolean arg2) {
+	public void onClose(int code, String reason, boolean remote) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void onError(Exception arg0) {
+	public void onError(Exception ex) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void onMessage(String arg0) {
-		// TODO Auto-generated method stub
-		
+	public void onMessage(String message) {
+		System.out.println("Received message: " + message);
 	}
 
 	@Override
-	public void onOpen(ServerHandshake arg0) {
-		// TODO Auto-generated method stub
-		
+	public void onOpen(ServerHandshake handshakedata) {
+		System.out.println("Connected to server");
+		Scanner sc = new Scanner(System.in);
+		String message = sc.nextLine();
+		send(message);
 	}
+	
 
 }
